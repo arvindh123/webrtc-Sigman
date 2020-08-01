@@ -1,5 +1,5 @@
 {
-  "name": "webrtc-nosignal",
+  "name": "webrtc-sigman",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
