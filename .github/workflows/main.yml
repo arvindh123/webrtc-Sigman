@@ -18,6 +18,9 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
+    - name: Install Packages
+      run:  yarn install
+
     - name: Get yarn cache directory path
       id: yarn-cache-dir-path
       run: echo "::set-output name=dir::$(yarn cache dir)"
@@ -29,9 +32,6 @@ jobs:
         key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
         restore-keys: |
           ${{ runner.os }}-yarn
-
-    - name: Install Packages
-      run:  yarn install
 
     - name: Build page 
       env:
