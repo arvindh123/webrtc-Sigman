@@ -36,6 +36,7 @@ jobs:
     - name: Build page 
       env:
           CI: false
+          PUBLIC_URL: github-pages
       run: yarn build
 
     - name : Push to GH Page
