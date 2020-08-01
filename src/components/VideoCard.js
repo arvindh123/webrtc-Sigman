@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme, content) => ({
 
 
 
-const LocalVideoCard = ({ HandleRemoveRemoteMedia, content }) => {
+const VideoCard = ({ HandleRemoveRemoteMedia, content }) => {
     const classes = useStyles(content);
     const getIntials = (name) => {
         if (typeof name ===  'undefined') {
@@ -58,7 +58,7 @@ const LocalVideoCard = ({ HandleRemoveRemoteMedia, content }) => {
                             {getIntials(content.name)}
                         </Avatar>
                     }
-                    title={content.name + "  (YOU)"} 
+                    title={content.name}
                     action={ content.media && content.local ?  null  : 
                                     <IconButton aria-label="settings" onClick={() => HandleRemoveRemoteMedia(content.id)} >
                                         <CloseIcon/>
@@ -75,4 +75,4 @@ const LocalVideoCard = ({ HandleRemoveRemoteMedia, content }) => {
 }
 
 
-export default LocalVideoCard
+export default VideoCard

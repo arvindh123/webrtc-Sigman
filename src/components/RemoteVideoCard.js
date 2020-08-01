@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme, content) => ({
 
 
 
-const LocalVideoCard = ({ HandleRemoveRemoteMedia, content }) => {
+const RemoteVideoCard = ({ HandleRemoveRemoteMedia, content }) => {
     const classes = useStyles(content);
     const getIntials = (name) => {
         if (typeof name ===  'undefined') {
@@ -47,7 +47,8 @@ const LocalVideoCard = ({ HandleRemoveRemoteMedia, content }) => {
             return ((initials.shift() || '') + (initials.pop() || '')).toUpperCase();
         }
     }
-
+    let titleName = content.outside ? content.callerName : content.receiverName
+    console.log("here =============>", content,titleName)
     return (
         <div>
             
@@ -55,16 +56,13 @@ const LocalVideoCard = ({ HandleRemoveRemoteMedia, content }) => {
                 <CardHeader
                     avatar={
                         <Avatar aria-label="recipe" className={classes.avatarColor}  >
-                            {getIntials(content.name)}
+                            { getIntials(titleName) }
                         </Avatar>
                     }
-                    title={content.name + "  (YOU)"} 
-                    action={ content.media && content.local ?  null  : 
-                                    <IconButton aria-label="settings" onClick={() => HandleRemoveRemoteMedia(content.id)} >
+                    title={titleName }
+                    action={   <IconButton aria-label="settings" onClick={() => HandleRemoveRemoteMedia(content.id)} >
                                         <CloseIcon/>
-                                    </IconButton>
-                                    
-                    }
+                                </IconButton> }
                 />
                 <CardContent>
                     <VideoContent media={content.media}/>
@@ -75,4 +73,4 @@ const LocalVideoCard = ({ HandleRemoveRemoteMedia, content }) => {
 }
 
 
-export default LocalVideoCard
+export default RemoteVideoCard
