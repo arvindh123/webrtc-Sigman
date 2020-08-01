@@ -158,7 +158,7 @@ export default class RtcPc {
         await this.addStream();
         await this.createdOffer();
         let response = await iceCandidateFinishedPromise
-        if (response == true) { 
+        if (response === true) { 
             pack = { 
                 callId :  uuid.v4(),
                 callerId : this.Id,
@@ -181,7 +181,7 @@ export default class RtcPc {
         await this.setRemoteDescription(pack.callerSpd) 
         await this.createAnswer();
         let response = await iceCandidateFinishedPromise
-        if (response == true) { 
+        if (response === true) { 
         repack = {
                 ...pack,
                 receiverId:this.Id,
