@@ -21,8 +21,10 @@ jobs:
     - name: Install Packages
       run:  yarn install
 
-    - name: Build page and Publish
+    - name: Build page 
       run: yarn build
+
+    - name : Push to GH Page
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
