@@ -38,7 +38,7 @@ jobs:
     - name: Build page 
       env:
           CI: false
-          PUBLIC_URL: github-pages
+          PUBLIC_URL: https://arvindh123.github.io/webrtc-Sigman
       run: yarn build
 
     - name : Push to GH Page
