@@ -17,13 +17,12 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
+        
     - name: Install Packages
-      run: npm install
-      env:
-        CI: false
-    - name: Build page
-      run: npm run build
-    - name: Deploy
+      run:  yarn install
+
+    - name: Build page and Publish
+      run: yarn build
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
