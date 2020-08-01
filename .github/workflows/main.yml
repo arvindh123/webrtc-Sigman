@@ -34,6 +34,8 @@ jobs:
       run:  yarn install
 
     - name: Build page 
+      env:
+          CI: false
       run: yarn build
 
     - name : Push to GH Page
