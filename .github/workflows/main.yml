@@ -17,18 +17,6 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-        
-    - name: Install Packages
-      run:  yarn install
-
-    - name: Build page 
-      run: yarn build
-
-    - name : Push to GH Page
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./build
 
     - name: Get yarn cache directory path
       id: yarn-cache-dir-path
@@ -41,3 +29,16 @@ jobs:
         key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
         restore-keys: |
           ${{ runner.os }}-yarn
+
+    - name: Install Packages
+      run:  yarn install
+
+    - name: Build page 
+      run: yarn build
+
+    - name : Push to GH Page
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./build
+
